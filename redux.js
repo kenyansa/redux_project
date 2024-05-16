@@ -19,12 +19,12 @@ const handleAsync = () => {
   }
 };
 
-const defaultState = {
+const defaulttState = {
   fetching: false,
   users: []
 };
 
-const asyncDataReducer = (state = defaultState, action) => {
+const asyncDataReducer = (state = defaulttState, action) => {
   switch(action.type) {
     case REQUESTING_DATA:
       return {
@@ -78,7 +78,7 @@ const decAction = () =>{
 // Define the Redux store here, passing in your reducers
 
 //case 3
-const immutableReducer = (state = [0,1,2,3,4,5], action) => {
+const immutableeReducer = (state = [0,1,2,3,4,5], action) => {
     switch(action.type) {
       case 'REMOVE_ITEM':
         // Don't mutate state here or the tests will fail
@@ -94,5 +94,31 @@ const immutableReducer = (state = [0,1,2,3,4,5], action) => {
       index
     }
   }
+  
+//   const store = Redux.createStore(immutableReducer);
+
+//   case 4
+const defaultState = {
+    user: 'CamperBot',
+    status: 'offline',
+    friends: '732,982',
+    community: 'freeCodeCamp'
+  };
+  
+  const immutableReducer = (state = defaultState, action) => {
+    switch(action.type) {
+      case 'ONLINE':
+        // Don't mutate state here or the tests will fail
+        return Object.assign({}, state, { status: 'online' });
+      default:
+        return state;
+    }
+  };
+  
+  const wakeUp = () => {
+    return {
+      type: 'ONLINE'
+    }
+  };
   
   const store = Redux.createStore(immutableReducer);
