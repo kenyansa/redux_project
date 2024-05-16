@@ -61,7 +61,11 @@ const counterReducer = (state = 0, action) =>{
     }
 }; // Define the counter reducer which will increment or decrement the state based on the action it receives
 
-const incAction = null; // Define an action creator for incrementing
+const incAction = () =>{
+    return {
+        type: INCREMENT
+    }
+}; // Define an action creator for incrementing
 
 const decAction = null; // Define an action creator for decrementing
 
