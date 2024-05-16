@@ -74,5 +74,25 @@ const decAction = () =>{
 }; // Define an action creator for decrementing
 
 
-const store = Redux.createStore(counterReducer);
+// const store = Redux.createStore(counterReducer);
 // Define the Redux store here, passing in your reducers
+
+//case 3
+const immutableReducer = (state = [0,1,2,3,4,5], action) => {
+    switch(action.type) {
+      case 'REMOVE_ITEM':
+        // Don't mutate state here or the tests will fail
+        return state.filter((item, index) => index !== action.index);
+      default:
+        return state;
+    }
+  };
+  
+  const removeItem = (index) => {
+    return {
+      type: 'REMOVE_ITEM',
+      index
+    }
+  }
+  
+  const store = Redux.createStore(immutableReducer);
