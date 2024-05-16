@@ -74,8 +74,5 @@ const decAction = () =>{
 }; // Define an action creator for decrementing
 
 
-const store = Redux.createStore(
-    asyncDataReducer,
-    Redux.applyMiddleware(ReduxThunk.default)
-  );
+const store = Redux.createStore(counterReducer);
 // Define the Redux store here, passing in your reducers
