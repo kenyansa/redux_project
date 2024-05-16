@@ -67,7 +67,11 @@ const incAction = () =>{
     }
 }; // Define an action creator for incrementing
 
-const decAction = null; // Define an action creator for decrementing
+const decAction = () =>{
+    return{
+        type: DECREMENT
+    }
+}; // Define an action creator for decrementing
 
 
 const store = Redux.createStore(
